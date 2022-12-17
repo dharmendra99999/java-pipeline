@@ -40,9 +40,9 @@ pipeline {
 	 	stage("testing website") {
 			steps {
 				retry(5) {
-				sh "curl --silent http://54.151.131.114:8082/java-web-app/ | grep -i india"
+				sh "curl --silent http://54.169.151.230:8082/java-web-app/ | grep -i india"
 				}
-	   		}
+	   		}BOB
 		}
 
 		stage("Approval status") {
@@ -57,8 +57,8 @@ pipeline {
 		stage("Prod Env") {
 			steps {
 			 sshagent(['slave-1']) {
-			    sh 'ssh -o StrictHostKeyChecking=no ec2-user@54.169.77.88 sudo docker rm -f $(sudo docker ps -a -q)' 
-	                    sh "ssh -o StrictHostKeyChecking=no ec2-user@54.169.77.88 sudo docker run  -d  -p  49153:8080  dharmendra99999/pipeline-java:$BUILD_TAG"
+			    sh 'ssh -o StrictHostKeyChecking=no ec2-user@52.221.183.253 sudo docker rm -f $(sudo docker ps -a -q)' 
+	                    sh "ssh -o StrictHostKeyChecking=no ec2-user@52.221.183.253 sudo docker run  -d  -p  49153:8080  dharmendra99999/pipeline-java:$BUILD_TAG"
 				}
 			}
 		}
