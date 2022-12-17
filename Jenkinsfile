@@ -39,10 +39,10 @@ pipeline {
 			}
 	 	stage("testing website") {
 			steps {
-				retry(5) {
+				retry(8) {
 				sh "curl --silent http://54.169.151.230:8082/java-web-app/ | grep -i india"
 				}
-	   		}BOB
+	   		}
 		}
 
 		stage("Approval status") {
