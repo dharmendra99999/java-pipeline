@@ -40,7 +40,7 @@ pipeline {
 	 	stage("testing website") {
 			steps {
 				retry(5) {
-				sh "curl --silent http://54.151.131.114:8080/java-web-app/ | grep -i india"
+				sh "curl --silent http://54.151.131.114:8082/java-web-app/ | grep -i india"
 				}
 	   		}
 		}
